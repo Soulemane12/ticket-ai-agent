@@ -1,9 +1,9 @@
 import OpenAI from 'openai';
 import { AIResponse, Message } from './types';
 
-const openai = new OpenAI({
+const openai = process.env.OPENAI_API_KEY ? new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-});
+}) : null;
 
 const DEFAULT_SYSTEM_PROMPT = `You are a helpful customer support AI assistant. Your goal is to help users with their questions and issues efficiently and courteously.
 
@@ -47,6 +47,15 @@ export async function getChatCompletion(
   systemPrompt: string = DEFAULT_SYSTEM_PROMPT
 ): Promise<AIResponse> {
   try {
+    // Check if OpenAI is configured
+    if (!openai) {
+      return {
+        message: "I apologize, but the AI service is not currently configured. Please contact an administrator to set up the OpenAI API key.",
+        confidence: 0,
+        shouldEscalate: true,
+        escalationReason: 'AI service not configured'
+      };
+    }
     const openaiMessages = messages.map(msg => ({
       role: msg.role,
       content: msg.content
