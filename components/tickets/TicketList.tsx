@@ -148,19 +148,25 @@ function TicketCard({ ticket, onStatusChange, onAssignAgent, availableAgents }: 
             <option value="closed">Closed</option>
           </select>
 
-          {ticket.status === 'escalated' && availableAgents.length > 0 && !ticket.assignedAgent && (
-            <select
-              onChange={(e) => e.target.value && onAssignAgent(e.target.value)}
-              className="text-sm border border-gray-300 rounded px-2 py-1 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              defaultValue=""
-            >
-              <option value="">Assign to...</option>
-              {availableAgents.map((agent) => (
-                <option key={agent.id} value={agent.id}>
-                  {agent.name}
-                </option>
-              ))}
-            </select>
+          {ticket.status === 'escalated' && !ticket.assignedAgent && (
+            availableAgents.length > 0 ? (
+              <select
+                onChange={(e) => e.target.value && onAssignAgent(e.target.value)}
+                className="text-sm border border-gray-300 rounded px-2 py-1 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                defaultValue=""
+              >
+                <option value="">Assign to...</option>
+                {availableAgents.map((agent) => (
+                  <option key={agent.id} value={agent.id}>
+                    {agent.name}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <div className="text-xs text-gray-500 mt-2 italic">
+                No agents available for assignment
+              </div>
+            )
           )}
         </div>
       </div>

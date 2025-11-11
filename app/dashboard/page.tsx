@@ -87,21 +87,28 @@ export default function DashboardPage() {
           <div className="mt-4">
             <h3 className="text-sm font-medium text-gray-900 mb-2">Agents</h3>
             <div className="space-y-2">
-              {state.agents.map((agent) => (
-                <div key={agent.id} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
-                  <div className="flex items-center space-x-3">
-                    <div className={`h-3 w-3 rounded-full ${
-                      agent.status === 'available' ? 'bg-green-500' :
-                      agent.status === 'busy' ? 'bg-orange-500' : 'bg-gray-500'
-                    }`}></div>
-                    <span className="text-sm font-medium">{agent.name}</span>
-                    <span className="text-sm text-gray-500">{agent.email}</span>
-                  </div>
-                  <div className="text-sm text-gray-500">
-                    {agent.activeTickets.length} active tickets
-                  </div>
+              {state.agents.length === 0 ? (
+                <div className="text-center py-8 text-gray-500">
+                  <div className="text-sm">No agents configured yet</div>
+                  <div className="text-xs mt-1">Agents need to be added by administrators</div>
                 </div>
-              ))}
+              ) : (
+                state.agents.map((agent) => (
+                  <div key={agent.id} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
+                    <div className="flex items-center space-x-3">
+                      <div className={`h-3 w-3 rounded-full ${
+                        agent.status === 'available' ? 'bg-green-500' :
+                        agent.status === 'busy' ? 'bg-orange-500' : 'bg-gray-500'
+                      }`}></div>
+                      <span className="text-sm font-medium">{agent.name}</span>
+                      <span className="text-sm text-gray-500">{agent.email}</span>
+                    </div>
+                    <div className="text-sm text-gray-500">
+                      {agent.activeTickets.length} active tickets
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>

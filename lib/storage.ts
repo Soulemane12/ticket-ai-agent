@@ -7,33 +7,7 @@ const STORAGE_KEYS = {
   APP_STATE: 'ticket-ai-app-state'
 } as const;
 
-// Default agents for demo purposes
-const DEFAULT_AGENTS: Agent[] = [
-  {
-    id: 'agent-1',
-    name: 'Sarah Johnson',
-    email: 'sarah.johnson@company.com',
-    status: 'available',
-    activeTickets: [],
-    skillTags: ['technical', 'billing', 'general']
-  },
-  {
-    id: 'agent-2',
-    name: 'Mike Chen',
-    email: 'mike.chen@company.com',
-    status: 'available',
-    activeTickets: [],
-    skillTags: ['technical', 'feature_request']
-  },
-  {
-    id: 'agent-3',
-    name: 'Emily Davis',
-    email: 'emily.davis@company.com',
-    status: 'offline',
-    activeTickets: [],
-    skillTags: ['billing', 'complaint', 'general']
-  }
-];
+// No default agents - agents should be created/added by administrators
 
 class StorageManager {
   private isClient = typeof window !== 'undefined';
@@ -152,14 +126,7 @@ class StorageManager {
 
   // Agents
   getAgents(): Agent[] {
-    const agents = this.getItem(STORAGE_KEYS.AGENTS, DEFAULT_AGENTS);
-
-    // If we got default agents, save them to localStorage
-    if (!this.isClient || !localStorage.getItem(STORAGE_KEYS.AGENTS)) {
-      this.setItem(STORAGE_KEYS.AGENTS, DEFAULT_AGENTS);
-    }
-
-    return agents;
+    return this.getItem(STORAGE_KEYS.AGENTS, []);
   }
 
   saveAgents(agents: Agent[]): void {
