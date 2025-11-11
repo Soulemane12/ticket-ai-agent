@@ -1,10 +1,10 @@
 import { ChatSession, Ticket, Agent, AppState } from './types';
 
 const STORAGE_KEYS = {
-  CHAT_SESSIONS: 'ticket-ai-chat-sessions',
-  TICKETS: 'ticket-ai-tickets',
-  AGENTS: 'ticket-ai-agents',
-  APP_STATE: 'ticket-ai-app-state'
+  CHAT_SESSIONS: 'klikks-chat-sessions',
+  TICKETS: 'klikks-tickets',
+  AGENTS: 'klikks-agents',
+  APP_STATE: 'klikks-app-state'
 } as const;
 
 // No default agents - agents should be created/added by administrators

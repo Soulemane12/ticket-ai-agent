@@ -12,7 +12,7 @@ export default function Home() {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Ticket AI Agent
+            Klikks
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
@@ -111,7 +111,7 @@ export default function Home() {
           <div className="flex justify-center mb-4">
             <Bot className="h-8 w-8 text-blue-400" />
           </div>
-          <h3 className="text-xl font-semibold mb-2">Ticket AI Agent</h3>
+          <h3 className="text-xl font-semibold mb-2">Klikks</h3>
           <p className="text-gray-400">
             Revolutionizing customer support with AI and human collaboration
           </p>

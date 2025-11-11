@@ -30,7 +30,7 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Bot className="h-8 w-8 text-blue-500" />
-            <span className="text-xl font-bold text-gray-900">Ticket AI</span>
+            <span className="text-xl font-bold text-gray-900">Klikks</span>
           </Link>
 
           {/* Navigation Links */}

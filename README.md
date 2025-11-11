@@ -1,4 +1,4 @@
-# Ticket AI Agent
+# Klikks
 
 A modern AI-powered customer support system that combines the efficiency of GPT-4o with seamless escalation to human agents. Built with Next.js 16, TypeScript, and Tailwind CSS.
 
@@ -24,7 +24,7 @@ A modern AI-powered customer support system that combines the efficiency of GPT-
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/Soulemane12/ticket-ai-agent.git
    cd ticket-ai-agent
    ```
 

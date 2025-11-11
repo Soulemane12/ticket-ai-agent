@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ticket AI Agent - Smart Customer Support",
+  title: "Klikks - Smart Customer Support",
   description: "AI-powered customer support with seamless escalation to human agents",
 };
 
